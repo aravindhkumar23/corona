@@ -1,13 +1,25 @@
-import React from 'react';
-import {SafeAreaView, StyleSheet, View, Text} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {SafeAreaView, StyleSheet, View, Text, Button} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
-const App: () => React$Node = () => {
+const App = () => {
+  const [pizzaCount, setpizzaCount] = useState(0);
+
+  useEffect(() => {
+    if (pizzaCount >= 42) {
+      setpizzaCount(42);
+    }
+  });
+
   return (
     <SafeAreaView>
       <View style={styles.body}>
-        <Text style={styles.sectionTitle}>Project init </Text>
+        <Text>Ordered {pizzaCount} pizzas.</Text>
+        <Button
+          onPress={() => setpizzaCount(pizzaCount + 1)}
+          title="Add Pizza!"
+        />
       </View>
     </SafeAreaView>
   );
