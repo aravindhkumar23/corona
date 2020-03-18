@@ -2,6 +2,10 @@
 
 COVID Tracker - an simple react native application to learn react hooks concept [usestate,useeffect]
 
+# SCREENS
+
+![Sample Screen](https://github.com/aravindhkumar23/covid/blob/master/screenshots/1.png)
+
 ### Prerequisites
 
 ```
