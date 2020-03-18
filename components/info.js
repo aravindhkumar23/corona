@@ -12,14 +12,26 @@ export default function InfoView({navigation}) {
 
       <View style={styles.body}>
         <Text style={styles.sectionContent}>
-          Thanks @WesBos for providing the public api.
-        </Text>
-        <Text style={styles.sectionContent}>
           This app is build to learn the hooks concept not for the commercial
           purpose.
         </Text>
         <Text style={styles.sectionContent}>
-          The source code for the react native app is available in
+          The data may not be used for commercial purposes.
+        </Text>
+        <Text style={styles.sectionContent}>
+          Thanks
+          <Text
+            style={{color: 'blue'}}
+            onPress={() =>
+              Linking.openURL('https://github.com/mathdroid/covid-19-api')
+            }>
+            {' '}
+            mathdroid
+          </Text>{' '}
+          for providing the public api.
+        </Text>
+        <Text style={styles.sectionContent}>
+          The source code for the React Native app is available in
           <Text
             style={{color: 'blue'}}
             onPress={() =>
@@ -43,6 +55,7 @@ const styles = StyleSheet.create({
     textAlign: 'justify',
     fontSize: 18,
     fontWeight: '600',
+    paddingBottom: 10,
   },
 });
 

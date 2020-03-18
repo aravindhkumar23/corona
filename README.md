@@ -25,4 +25,8 @@ react-native run-android/run-ios
 
 ## Built With
 
-- [wesbos](https://covid19.mathdro.id) - The Api used
+- [mathdroid](https://github.com/mathdroid/covid-19-api) - Api
+
+## License
+
+The data may not be used for commercial purposes.
