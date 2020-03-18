@@ -2,18 +2,34 @@
 //Created by Aravindh Kumar
 
 import React from 'react';
-import {SafeAreaView, StyleSheet, View, Text, Button} from 'react-native';
-import * as appConstants from '../utils/constants';
+import {StyleSheet, View, Text, Linking} from 'react-native';
 import HeaderView from './header';
 
 export default function InfoView({navigation}) {
   return (
-    <View style={styles.body}>
+    <View>
       <HeaderView navigation={navigation}></HeaderView>
-      <Text style={{padding: 20, textAlign: 'justify'}}>
-        Informations -- thanks @WesBos for providing the public api, This app is
-        build to learn the hooks concept not for the commercial purpose
-      </Text>
+
+      <View style={styles.body}>
+        <Text style={styles.sectionContent}>
+          Thanks @WesBos for providing the public api.
+        </Text>
+        <Text style={styles.sectionContent}>
+          This app is build to learn the hooks concept not for the commercial
+          purpose.
+        </Text>
+        <Text style={styles.sectionContent}>
+          The source code for the react native app is available in
+          <Text
+            style={{color: 'blue'}}
+            onPress={() =>
+              Linking.openURL('https://github.com/aravindhkumar23/corona')
+            }>
+            {' '}
+            github
+          </Text>
+        </Text>
+      </View>
     </View>
   );
 }
@@ -21,9 +37,11 @@ export default function InfoView({navigation}) {
 const styles = StyleSheet.create({
   body: {
     alignItems: 'center',
+    padding: 20,
   },
-  sectionTitle: {
-    fontSize: 24,
+  sectionContent: {
+    textAlign: 'justify',
+    fontSize: 18,
     fontWeight: '600',
   },
 });
