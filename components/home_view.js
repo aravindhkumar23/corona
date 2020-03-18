@@ -16,7 +16,7 @@ export default function HomePage({navigation}) {
       <ScrollView>
         <View style={styles.body}>
           <HeaderView navigation={navigation}></HeaderView>
-          <StatisticsView url={appConstants.base_url} />
+          <StatisticsView url={appConstants.base_url} showDate={true} />
           <ChooseByCountry />
         </View>
       </ScrollView>

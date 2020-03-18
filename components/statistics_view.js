@@ -6,8 +6,9 @@ import {ActivityIndicator, StyleSheet, View, Text} from 'react-native';
 import getDataFrom from '../utils/getDataFromApi';
 import CardView from 'react-native-cardview';
 import * as appConstants from '../utils/constants';
+import Moment from 'moment';
 
-export default function StatisticsView({url}) {
+export default function StatisticsView({url, showDate}) {
   const {stats, loading, error} = getDataFrom(url);
 
   if (loading)
@@ -20,6 +21,16 @@ export default function StatisticsView({url}) {
   const cardMaxElevation = 20;
   return (
     <View style={styles.body}>
+      {showDate ? (
+        <View style={{alignSelf: 'flex-end', padding: 10.0}}>
+          <Text>
+            Last Updated on{' '}
+            {Moment(stats.lastUpdate).format('Do MMM YYYY, h:mm:ss a')}
+          </Text>
+        </View>
+      ) : (
+        <View />
+      )}
       <CardView
         cardElevation={cardElevation}
         cardMaxElevation={cardMaxElevation}

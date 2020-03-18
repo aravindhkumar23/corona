@@ -2,13 +2,7 @@
 
 COVID Tracker - an simple react native application to learn react hooks concept [usestate,useeffect]
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
 ### Prerequisites
-
-What things you need to install the software and how to install them
 
 ```
 npm installed
@@ -24,6 +18,10 @@ npm install
 react-native link
 react-native run-android/run-ios
 ```
+
+### Generate Debug build
+
+- [refer](https://dev.to/shubhkirtisharma/building-serverless-or-debug-apk-for-react-native-apps-356m) - to generate debug build
 
 ## Built With
 

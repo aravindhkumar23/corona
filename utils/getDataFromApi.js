@@ -20,6 +20,7 @@ export default function getDataFrom(url) {
       if (data['error'] != null) {
         setError(data.error.message);
       } else {
+        console.log(data);
         setStats(data);
       }
       setLoading(false);

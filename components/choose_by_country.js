@@ -52,9 +52,8 @@ export default function ChooseByCountry() {
         </Picker>
       </View>
       <StatisticsView
-        url={
-          appConstants.get_country_url + '/' + selectedCountry
-        }></StatisticsView>
+        url={appConstants.get_country_url + '/' + selectedCountry}
+        showDate={false}></StatisticsView>
     </View>
   );
 }
