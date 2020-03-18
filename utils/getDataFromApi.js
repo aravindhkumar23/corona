@@ -9,14 +9,19 @@ export default function getDataFrom(url) {
     async function fetchData() {
       setLoading(true);
       setError();
-      console.log('Fetching Data');
+      setStats();
+      console.log('Fetching Data from ' + url);
       const data = await fetch(url)
         .then(res => res.json())
         .catch(err => {
           console.log('api call error--->>>');
           setError(err);
         });
-      setStats(data);
+      if (data['error'] != null) {
+        setError(data.error.message);
+      } else {
+        setStats(data);
+      }
       setLoading(false);
     }
     fetchData();

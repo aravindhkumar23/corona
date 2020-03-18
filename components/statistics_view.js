@@ -1,31 +1,30 @@
 //COVID Tracker
 //Created by Aravindh Kumar
 
-import React, {useState, useEffect} from 'react';
-import {SafeAreaView, StyleSheet, View, Text, Button} from 'react-native';
-import * as appConstants from '../utils/constants';
-import HeaderView from './header';
-
+import React from 'react';
+import {ActivityIndicator, StyleSheet, View, Text} from 'react-native';
 import getDataFrom from '../utils/getDataFromApi';
 import CardView from 'react-native-cardview';
+import * as appConstants from '../utils/constants';
 
-export default function GlobalView({navigation}) {
-  const {stats, loading, error} = getDataFrom(appConstants.base_url);
-  console.log('logging GlobalView.js ----------->>>>>>>');
-  console.log(stats, loading, error);
-  if (loading) return <Text>Loading...</Text>;
-  if (error) return <Text>Error... {JSON.stringify(stats)}</Text>;
+export default function StatisticsView({url}) {
+  const {stats, loading, error} = getDataFrom(url);
+
+  if (loading)
+    return (
+      <ActivityIndicator size="small" color={appConstants.app_theme_color} />
+    );
+  if (error) return <Text style={{textAlign: 'center'}}>{error}</Text>;
 
   const cardElevation = 20;
   const cardMaxElevation = 20;
   return (
     <View style={styles.body}>
-      <HeaderView navigation={navigation}></HeaderView>
       <CardView
         cardElevation={cardElevation}
         cardMaxElevation={cardMaxElevation}
         cornerRadius={5}
-        style={[styles.cardStyle, {marginTop: 30}]}>
+        style={[styles.cardStyle, {}]}>
         <Text style={styles.sectionTitle}>Coronavirus Cases:</Text>
         <Text style={styles.casesRate}>{stats.confirmed.value}</Text>
       </CardView>
